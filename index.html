@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinaemezu Joel Okechi | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #0a192f; --secondary: #64ffda; --text: #8892b0; --light: #ccd6f6; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--primary); color: var(--text); margin: 0; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        header { padding: 100px 0 50px; }
+        h1 { color: var(--light); font-size: 3rem; margin: 0; }
+        .highlight { color: var(--secondary); font-family: monospace; }
+        .section-title { color: var(--light); border-bottom: 2px solid var(--secondary); display: inline-block; margin-bottom: 30px; }
+        .project-card { background: #112240; padding: 25px; border-radius: 10px; margin-bottom: 20px; transition: 0.3s; }
+        .project-card:hover { transform: translateY(-5px); }
+        .tag { color: var(--secondary); font-size: 0.8rem; margin-right: 10px; font-family: monospace; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        a { color: var(--secondary); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p class="highlight">Hi, my name is</p>
+            <h1>Chinaemezu Joel Okechi.</h1>
+            <p style="font-size: 1.2rem; max-width: 600px;">Cybersecurity Researcher & Automation Engineer specializing in threat intelligence, malware analysis, and cloud security architecture.</p>
+            <div class="socials">
+                <a href="mailto:chinaemezu.j.okechi@gmail.com"><i class="fas fa-envelope"></i> Email</a> &nbsp;
+                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </header>
+
+        <section id="projects">
+            <h2 class="section-title">Featured Work</h2>
+            
+            <div class="project-card">
+                <h3>MED-TROP Expert System</h3>
+                <p>A Python-based diagnostic tool for tropical diseases using structured decision-tree logic and a custom Tkinter GUI.</p>
+                <div><span class="tag">Python</span><span class="tag">Logic Engineering</span><span class="tag">GUI</span></div>
+            </div>
+
+            <div class="project-card">
+                <h3>EmezTech Cloud Automation</h3>
+                <p>Architected a threat intelligence pipeline using n8n on GCP and Oracle Cloud to monitor global cybersecurity trends.</p>
+                <div><span class="tag">GCP</span><span class="tag">n8n</span><span class="tag">Cloud Infrastructure</span></div>
+            </div>
+
+            <div class="project-card">
+                <h3>Malware & Forensics Research</h3>
+                <p>Independent research into malware persistence and autonomous system vulnerabilities using Webots simulations.</p>
+                <div><span class="tag">Forensics</span><span class="tag">Webots</span><span class="tag">Cyber-Physical Security</span></div>
+            </div>
+        </section>
+
+        <section id="skills" style="margin-top: 50px;">
+            <h2 class="section-title">Skills & Domains</h2>
+            <div class="skills-grid">
+                <div><h4>Security</h4><ul><li>Malware Analysis</li><li>Pen-Testing</li><li>Forensics</li></ul></div>
+                <div><h4>Tools</h4><ul><li>n8n Automation</li><li>Kali Linux</li><li>Wireshark</li></ul></div>
+                <div><h4>Dev</h4><ul><li>Python</li><li>Bash</li><li>GCP/Oracle Cloud</li></ul></div>
+            </div>
+        </section>
+
+        <section id="education" style="margin-top: 50px;">
+            <h2 class="section-title">Education</h2>
+            <p style="color: var(--light);"><strong>B.Sc. Cybersecurity</strong> | Southern Delta University (SDU)</p>
+            <p>Expected Graduation: 2027 | Current Level: 300</p>
+        </section>
+    </div>
+</body>
+</html>
