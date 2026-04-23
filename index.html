@@ -3,71 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinaemezu Joel Okechi | Portfolio</title>
+    <title>Chinaemezu Joel Okechi | Cybersecurity Researcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #0a192f; --secondary: #64ffda; --text: #8892b0; --light: #ccd6f6; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--primary); color: var(--text); margin: 0; line-height: 1.6; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        header { padding: 100px 0 50px; }
-        h1 { color: var(--light); font-size: 3rem; margin: 0; }
-        .highlight { color: var(--secondary); font-family: monospace; }
-        .section-title { color: var(--light); border-bottom: 2px solid var(--secondary); display: inline-block; margin-bottom: 30px; }
-        .project-card { background: #112240; padding: 25px; border-radius: 10px; margin-bottom: 20px; transition: 0.3s; }
-        .project-card:hover { transform: translateY(-5px); }
-        .tag { color: var(--secondary); font-size: 0.8rem; margin-right: 10px; font-family: monospace; }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        a { color: var(--secondary); text-decoration: none; }
+        :root {
+            --bg: #020c1b;
+            --light-bg: #0a192f;
+            --blue: #112240;
+            --green: #64ffda;
+            --text-main: #ccd6f6;
+            --text-dim: #8892b0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg);
+            color: var(--text-dim);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: rgba(2, 12, 27, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        .logo { font-family: 'Fira Code', monospace; color: var(--green); font-weight: bold; font-size: 1.2rem; }
+        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 30px; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--green); }
+
+        /* Hero Section */
+        header { padding: 100px 0; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
+        .mono { font-family: 'Fira Code', monospace; color: var(--green); font-size: 1rem; margin-bottom: 20px; }
+        h1 { font-size: clamp(40px, 8vw, 80px); color: var(--text-main); font-weight: 700; line-height: 1.1; }
+        h2 { font-size: clamp(30px, 5vw, 50px); color: var(--text-dim); margin-bottom: 30px; }
+        .description { max-width: 540px; font-size: 1.1rem; margin-bottom: 50px; }
+
+        /* Buttons */
+        .btn {
+            border: 1px solid var(--green);
+            color: var(--green);
+            padding: 18px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn:hover { background: rgba(100, 255, 218, 0.1); }
+
+        /* Sections */
+        section { padding: 100px 0; }
+        .section-num { font-family: 'Fira Code', monospace; color: var(--green); font-size: 1.2rem; margin-right: 10px; }
+        .section-title { color: var(--text-main); font-size: 2rem; display: flex; align-items: center; margin-bottom: 40px; }
+        .section-title::after { content: ""; display: block; height: 1px; width: 300px; background: var(--blue); margin-left: 20px; }
+
+        /* Grid Layouts */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 4px;
+            transition: 0.3s;
+            position: relative;
+            border-bottom: 3px solid transparent;
+        }
+        .card:hover { transform: translateY(-10px); border-bottom: 3px solid var(--green); }
+        .card i { color: var(--green); font-size: 2rem; margin-bottom: 20px; }
+        .card h3 { color: var(--text-main); margin-bottom: 15px; }
+        .card p { font-size: 0.95rem; margin-bottom: 20px; }
+        .tech-list { font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--green); display: flex; flex-wrap: wrap; list-style: none; }
+        .tech-list li { margin-right: 15px; }
+
+        /* Skills */
+        .skills-list { display: grid; grid-template-columns: repeat(2, minmax(140px, 200px)); list-style: none; gap: 10px; }
+        .skills-list li::before { content: "▹"; color: var(--green); margin-right: 10px; }
+
+        footer { text-align: center; padding: 50px; font-family: 'Fira Code', monospace; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            h1 { font-size: 40px; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <p class="highlight">Hi, my name is</p>
-            <h1>Chinaemezu Joel Okechi.</h1>
-            <p style="font-size: 1.2rem; max-width: 600px;">Cybersecurity Researcher & Automation Engineer specializing in threat intelligence, malware analysis, and cloud security architecture.</p>
-            <div class="socials">
-                <a href="mailto:chinaemezu.j.okechi@gmail.com"><i class="fas fa-envelope"></i> Email</a> &nbsp;
-                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            </div>
-        </header>
 
-        <section id="projects">
-            <h2 class="section-title">Featured Work</h2>
-            
-            <div class="project-card">
+<div class="container">
+    <nav>
+        <div class="logo">EmezTech//</div>
+        <div class="nav-links">
+            <a href="#about"><span class="highlight">01.</span> About</a>
+            <a href="#projects"><span class="highlight">02.</span> Projects</a>
+            <a href="#skills"><span class="highlight">03.</span> Skills</a>
+            <a href="mailto:chinaemezu.j.okechi@gmail.com" class="btn" style="padding: 10px 15px; margin-left: 20px;">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <p class="mono">Initializing connection...</p>
+        <h1>Chinaemezu Joel Okechi.</h1>
+        <h2>I secure digital ecosystems.</h2>
+        <p class="description">
+            I am a 300-level Cybersecurity student and researcher specializing in **threat intelligence automation**, **malware forensics**, and **logic-based security systems**. Currently focused on architecting resilient cloud infrastructures for EmezTech.
+        </p>
+        <a href="Chinaemezu_Joel_Resume.pdf" class="btn" download>Download Dossier (CV)</a>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title"><span class="section-num">01.</span> About Me</h2>
+        <div style="max-width: 700px;">
+            <p>My approach to cybersecurity combines offensive curiosity with defensive engineering. Whether I'm analyzing malware persistence or automating threat feeds on the cloud, I prioritize <strong>structured logic</strong> and <strong>scalability</strong>.</p>
+            <br>
+            <p>I am currently preparing for the <strong>Black Hat MEA 2026</strong> competition, honing my skills in vulnerability research and penetration testing.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title"><span class="section-num">02.</span> Technical Research & Work</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-microchip"></i>
                 <h3>MED-TROP Expert System</h3>
-                <p>A Python-based diagnostic tool for tropical diseases using structured decision-tree logic and a custom Tkinter GUI.</p>
-                <div><span class="tag">Python</span><span class="tag">Logic Engineering</span><span class="tag">GUI</span></div>
+                <p>Designed a diagnostic engine for tropical diseases. Implemented decision-tree logic patterns and a Python GUI for complex data validation.</p>
+                <ul class="tech-list">
+                    <li>Python</li>
+                    <li>Tkinter</li>
+                    <li>Logic Design</li>
+                </ul>
             </div>
 
-            <div class="project-card">
-                <h3>EmezTech Cloud Automation</h3>
-                <p>Architected a threat intelligence pipeline using n8n on GCP and Oracle Cloud to monitor global cybersecurity trends.</p>
-                <div><span class="tag">GCP</span><span class="tag">n8n</span><span class="tag">Cloud Infrastructure</span></div>
+            <div class="card">
+                <i class="fas fa-cloud"></i>
+                <h3>Cloud Intelligence Pipeline</h3>
+                <p>Architected a professional threat monitoring system using n8n. Hosted on GCP and Oracle Cloud to scrape and alert on global CVE trends.</p>
+                <ul class="tech-list">
+                    <li>n8n</li>
+                    <li>GCP</li>
+                    <li>Oracle Cloud</li>
+                    <li>Bash</li>
+                </ul>
             </div>
 
-            <div class="project-card">
-                <h3>Malware & Forensics Research</h3>
-                <p>Independent research into malware persistence and autonomous system vulnerabilities using Webots simulations.</p>
-                <div><span class="tag">Forensics</span><span class="tag">Webots</span><span class="tag">Cyber-Physical Security</span></div>
+            <div class="card">
+                <i class="fas fa-user-shield"></i>
+                <h3>Malware Forensics Lab</h3>
+                <p>Conducted independent research on malware behavior using sandboxed environments and Webots simulations for robotic security.</p>
+                <ul class="tech-list">
+                    <li>Forensics</li>
+                    <li>Webots</li>
+                    <li>Kali Linux</li>
+                </ul>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills" style="margin-top: 50px;">
-            <h2 class="section-title">Skills & Domains</h2>
-            <div class="skills-grid">
-                <div><h4>Security</h4><ul><li>Malware Analysis</li><li>Pen-Testing</li><li>Forensics</li></ul></div>
-                <div><h4>Tools</h4><ul><li>n8n Automation</li><li>Kali Linux</li><li>Wireshark</li></ul></div>
-                <div><h4>Dev</h4><ul><li>Python</li><li>Bash</li><li>GCP/Oracle Cloud</li></ul></div>
+    <section id="skills">
+        <h2 class="section-title"><span class="section-num">03.</span> Expertise Stack</h2>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div>
+                <h4 style="color: var(--text-main); margin-bottom: 20px;">Security Domains</h4>
+                <ul class="skills-list">
+                    <li>Malware Analysis</li>
+                    <li>Penetration Testing</li>
+                    <li>Digital Forensics</li>
+                    <li>Vulnerability Research</li>
+                    <li>Cloud Security</li>
+                    <li>Network Defense</li>
+                </ul>
             </div>
-        </section>
+            <div>
+                <h4 style="color: var(--text-main); margin-bottom: 20px;">Technologies</h4>
+                <ul class="skills-list">
+                    <li>Python / Bash</li>
+                    <li>n8n Automation</li>
+                    <li>Linux (Kali/Ubuntu)</li>
+                    <li>Wireshark / SIEM</li>
+                    <li>GCP / Oracle Cloud</li>
+                    <li>Webots</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-        <section id="education" style="margin-top: 50px;">
-            <h2 class="section-title">Education</h2>
-            <p style="color: var(--light);"><strong>B.Sc. Cybersecurity</strong> | Southern Delta University (SDU)</p>
-            <p>Expected Graduation: 2027 | Current Level: 300</p>
-        </section>
-    </div>
+    <footer>
+        <p>Designed & Built by Chinaemezu Joel Okechi</p>
+        <p style="margin-top: 10px; opacity: 0.5;">Secure Connection // 2026</p>
+    </footer>
+</div>
+
 </body>
 </html>
